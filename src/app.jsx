@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { Suspense } from 'react';
 
-import Test from './components/test'
+const Topbar = React.lazy(() => import('./components/Topbar'));
+const GameList = React.lazy(() => import('./components/GameList'));
 
 export default function App() {
-    return <div id="container" className="width[100%] height[100%]">
-        Not sure!
-        <Test />
+    return <div
+        id='container'
+        className='
+            width[100PERCENT]
+            height[100PERCENT]
+        '
+    >
+        <GameList />
+        <Topbar />
     </div>
 }

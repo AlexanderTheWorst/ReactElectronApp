@@ -6,8 +6,10 @@ let mainWindow = null;
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    minWidth: 1060,
+    minHeight: 700,
+    frame: false,
+    icon: path.join(__dirname, '..', 'dist', 'resources', 'icon.png'),
     webPreferences: {
       preload: path.join(__dirname, '..', 'dist', 'preload.js'),  // Correct path to preload.js
       nodeIntegration: true, // Disable nodeIntegration for security

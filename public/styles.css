@@ -1,18 +1,36 @@
-:root {}
-
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    background: var(--PRIMARY-BACKGROUND);
+    border: 1px solid var(--PRIMARY-ACCENT);
+    z-index: 1;
+    /* Ensures the border stays above other elements */
 }
 
 #root {
-    min-height: 100vh;
-    min-width: 100vw;
-    background-color: red;
+    height: 100%;
+    width: 100%;
 }
+
+/* #topbar {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+} */
+
+/* For more accurate styling */
+/* #GameList {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+} */

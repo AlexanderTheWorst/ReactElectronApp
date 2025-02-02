@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const webpack = require('webpack')
 
 module.exports = {
     entry: './src/index.jsx',  // Entry point for React app
@@ -11,7 +12,7 @@ module.exports = {
         filename: 'renderer.js',  // React bundled output
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
     module: {
         rules: [
