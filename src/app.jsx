@@ -7,8 +7,8 @@ export default function App() {
     return <div
         id='container'
         className='
-            width[100PERCENT]
-            height[100PERCENT]
+            width[100]
+            height[100]
         '
     >
         <GameList />
