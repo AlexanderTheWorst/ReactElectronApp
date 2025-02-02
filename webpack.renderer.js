@@ -2,7 +2,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
-const {BundleAnalyzerPlugin} = require("webpack-bundle-analyzer");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
     entry: './src/index.jsx',  // Entry point for React app
@@ -37,12 +37,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new CopyPlugin({
-            patterns: [
-                { from: 'public/', to: '', globOptions: { ignore: ['index.html'] } },
-                { from: 'src/electron/preload.js', to: 'preload.js' }
-            ],
-        }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',  // This generates a static HTML report
             reportFilename: 'bundle-report.html',  // Specify the output filename
@@ -58,15 +52,16 @@ module.exports = {
         __dirname: false,  // Do not override __dirname
     },
     optimization: {
+        usedExports: true, // Enables tree-shaking
         minimize: true,
         minimizer: [
             new TerserPlugin({
                 terserOptions: {
                     compress: {
-                        drop_console: true, // Optional: remove console.logs
+                        drop_console: true, // Remove console logs
                     },
                 },
             }),
         ],
-    },
+    }
 };

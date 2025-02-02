@@ -2,10 +2,10 @@
 import { app, BrowserWindow } from 'electron';
 import * as path from 'path';
 
-let win = null;
+let mainWindow = null;
 
 const createWindow = () => {
-  win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -14,9 +14,8 @@ const createWindow = () => {
       contextIsolation: true, // Enable contextIsolation for security
     },
   });
-  
-  // Check if the HTML file loads properly
-  win.loadFile(path.join(__dirname, '..', 'dist', 'index.html'))
+
+  mainWindow.loadFile(path.join(__dirname, '..', 'dist', 'index.html'))
     .then(() => {
       console.log('HTML loaded successfully');
     })
