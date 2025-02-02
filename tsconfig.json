@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "react-jsx", // ✅ Enable JSX support
+    "allowJs": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "outDir": "./dist", // Ensure compiled files go to 'dist'
+    "rootDir": "./src", // Keep source files in 'src'
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

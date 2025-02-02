@@ -1,0 +1,30 @@
+{
+    "appId": "com.react.app",
+    "asar": true,
+    "directories": {
+        "output": "dist"
+    },
+    "files": [
+        "dist/**/*",
+        "public/**/*",
+        "!dist/**/*.map",
+        "!node_modules/**/*",
+        "!node_modules/devDependencies/**/*",
+        "!**/*.md",
+        "!**/test/**/*",
+        "!**/README.md",
+        "!**/.git/**/*",
+        "!**/.github/**/*"
+    ],
+    "extraResources": [],
+    "mac": {
+        "target": [
+            "dmg",
+            "zip"
+        ]
+    },
+    "win": {
+        "target": "nsis",
+        "icon": "public/icon.ico"
+    }
+}
