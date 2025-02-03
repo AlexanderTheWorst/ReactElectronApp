@@ -1,5 +1,5 @@
 // src/main.ts
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
 
 let mainWindow = null;
@@ -24,6 +24,18 @@ const createWindow = () => {
     .catch((err) => {
       console.error('Error loading HTML:', err);
     });
+
+  ipcMain.handle('close-window', () => mainWindow.close());
+  ipcMain.handle('minimize-window', () => mainWindow.minimize());
+  ipcMain.handle('fullscreen-window', () => {
+    if (mainWindow.isMaximized()) {
+      mainWindow.unmaximize();
+      return 0;
+    } else {
+      mainWindow.maximize();
+      return 1;
+    }
+  })
 };
 
 app.whenReady().then(() => {

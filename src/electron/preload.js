@@ -1,5 +1,7 @@
-const { contextBridge } = require('electron');
+const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electron', {
-  global: global // Exposing the global object safely
+  close: () => ipcRenderer.invoke('close-window'),
+  minimize: () => ipcRenderer.invoke('minimize-window'),
+  try_fullscreen: () => { return ipcRenderer.invoke('fullscreen-window'); },
 });
